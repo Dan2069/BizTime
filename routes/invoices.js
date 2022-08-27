@@ -191,4 +191,24 @@ router.delete("/:id", async function (req, res, next) {
 });
 
 
+
+router.patch("/invoices/:id", async function(req, res, next) {
+  try{
+    if ("id" in req.body){
+      throw new ExpressError("Cannot be found", 404)
+    }
+
+    if (paid_date)
+    // Need to figure out conditional for adding the paid_date conditions
+
+    const result = await db.query(
+      `UPDATE invoices
+        SET amt = $1,
+        paid = $2,
+        paid_date = $3`
+    )
+  }
+})
+
+
 module.exports = router;
